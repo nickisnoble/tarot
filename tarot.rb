@@ -58,7 +58,7 @@ def print_deck
     pack << "#{card.title} (#{card.reversed?})"
   end
 
-  puts pack #.join(", ")
+  puts pack
   puts
 end
 
@@ -185,6 +185,10 @@ class Spread
   def self.s= spreads
     @@spreads = spreads
   end
+
+  # def sort
+
+  # end
 end
 
 #UI
@@ -227,7 +231,7 @@ def reset
   # Define cards
   define_cards # trigger meanings.rb
   
-  # Card.new( "The Fool",            0,  :trump, "Beginning, innocence, journey, spontaneity, free spirit" )
+  # Card.new( "The Fool",            0,  :trump, "Beginnings, innocence, journey, spontaneity, a free spirit" )
   # Card.new( "The Magician",        1,  :trump, "Intention, focus, will power, skill, purpose, creativity, resourcefulness" )
   # Card.new( "The High Priestess",  2,  :trump, "Intuition, higher powers, wisdom, secrets, subconscious mind" )
   # Card.new( "The Empress",         3,  :trump, "Fertility, mother, lover, nature, protection, abundance" )
@@ -242,10 +246,10 @@ def reset
   # Card.new( "The Hanged Man",      12, :trump, "Sacrifice, restriction, letting go, evaluation, new perspective" )
   # Card.new( "Death",               13, :trump, "Transformation, ending, beginning, transition" )
   # Card.new( "Temperance",          14, :trump, "Balance, moderation, mix, patience, adjusting" )
-  # Card.new( "The Devil",           15, :trump, "Bondage, fear, self-restriction, addiction, lust, dark side of self" )
-  # Card.new( "The Tower",           16, :trump, "Destruction, false securities, upheaval, sudden change, wake-up call" )
+  # Card.new( "The Devil",           15, :trump, "Shackles, fear, self-restriction, addiction, lust, the dark side of self" )
+  # Card.new( "The Tower",           16, :trump, "Destruction, false securities, upheaval, sudden change, a wake-up call" )
   # Card.new( "The Star",            17, :trump, "Hope, guidance, relief, inspiration, harmony" )
-  # Card.new( "The Moon",            18, :trump, "Illusion, intuition, unknown, fear, subconscious" )
+  # Card.new( "The Moon",            18, :trump, "Illusions, intuition, the unknown, fear, subconscious" )
   # Card.new( "The Sun",             19, :trump, "Illumination, clarity, fun, warmth, success, vitality, clarity" )
   # Card.new( "Judgment",            20, :trump, "Awakening, rebirth, inner calling, new perspective" )
   # Card.new( "The World",           21, :trump, "Enlightenment, completion, travel, perfect unity, accomplishment" )
@@ -316,7 +320,11 @@ def reading
   dialogue("That concludes this reading. Would you like to do another one?")
 
   choice = generate_menu(["no", "yes"])
-  choice == "no" ? dialogue("I hope this was insightful, #{$username}.") : reading # run another reading
+  choice == "no" ? dialogue("I hope this was insightful.") : reading # run another reading
+end
+
+def read_themes spread
+
 end
 
 # themes ( spread.cards )
@@ -331,6 +339,22 @@ end
 
   # insight = if strings, collect and concat strings
   # return insight
+
+  # ==== another idea for the above
+
+  # sort cards by suit
+    # get highest count
+
+  # sort cards by number
+    # get highest count
+
+  # compare counts, use highest
+  # return insight(type, count)
+
+# Feedback
+  # ask user how accurate the reading was, scale 1-5
+  # find a way to send that to me if they have internet
+  # otherwise move on silently
 
 # Intro
 def intro
@@ -353,13 +377,32 @@ def intro
 end
 
 def outro
-  dialogue("Thank you for visiting me, and remember #{$username}: my terminal is alway open.")
+  dialogue("Thank you for visiting me, and remember, #{$username}: my terminal is alway open.")
   dialogue("Come back anytime.")
   subtitle "Goodbye"
 end
 
 def main
-  # intro
+  # reset
+  # # shuffle, do celtic cross, draw ten cards
+  # $deck.shuffle!
+  # the_spread = Spread.s.find {|spread| "Celtic" }
+  # 10.times do 
+  #   the_spread.place_card $deck.draw!
+  # end
+
+  # # debug list cards
+  # the_spread.cards.each do |card|
+  #   puts "#{card.number}          #{card.suit}"
+  # end
+
+  # the_spread.sort_by &:number
+
+  # the_spread.cards.each do |card|
+  #   puts "#{card.number}          #{card.suit}"
+  # end
+
+  intro
   reading
   outro
 end
