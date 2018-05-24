@@ -230,30 +230,6 @@ def reset
 
   # Define cards
   define_cards # trigger meanings.rb
-  
-  # Card.new( "The Fool",            0,  :trump, "Beginnings, innocence, journey, spontaneity, a free spirit" )
-  # Card.new( "The Magician",        1,  :trump, "Intention, focus, will power, skill, purpose, creativity, resourcefulness" )
-  # Card.new( "The High Priestess",  2,  :trump, "Intuition, higher powers, wisdom, secrets, subconscious mind" )
-  # Card.new( "The Empress",         3,  :trump, "Fertility, mother, lover, nature, protection, abundance" )
-  # Card.new( "The Emperor",         4,  :trump, "Authority, father-figure, leadership, structure, logic, power" )
-  # Card.new( "The Hierophant",      5,  :trump, "Organizations, religion, group, identifucation, social rules, tradition, school" )
-  # Card.new( "The Lovers",          6,  :trump, "Relationships, love, communication, union, harmony, choices" )
-  # Card.new( "The Chariot",         7,  :trump, "Direction, control, will power, victory, ambition, travel" )
-  # Card.new( "The Strength",        8,  :trump, "Fortitude, inner strength, love, patience, compassion" )
-  # Card.new( "The Hermit",          9,  :trump, "Solitude, soul-searching, introspection, being alone, inner guidance" )
-  # Card.new( "Wheel of Fortune",    10, :trump, "Fate, good luck, karma, life cycles, destiny, changes, big picture" )
-  # Card.new( "Justice",             11, :trump, "Justice, fairness, truth, law, logic, balance" )
-  # Card.new( "The Hanged Man",      12, :trump, "Sacrifice, restriction, letting go, evaluation, new perspective" )
-  # Card.new( "Death",               13, :trump, "Transformation, ending, beginning, transition" )
-  # Card.new( "Temperance",          14, :trump, "Balance, moderation, mix, patience, adjusting" )
-  # Card.new( "The Devil",           15, :trump, "Shackles, fear, self-restriction, addiction, lust, the dark side of self" )
-  # Card.new( "The Tower",           16, :trump, "Destruction, false securities, upheaval, sudden change, a wake-up call" )
-  # Card.new( "The Star",            17, :trump, "Hope, guidance, relief, inspiration, harmony" )
-  # Card.new( "The Moon",            18, :trump, "Illusions, intuition, the unknown, fear, subconscious" )
-  # Card.new( "The Sun",             19, :trump, "Illumination, clarity, fun, warmth, success, vitality, clarity" )
-  # Card.new( "Judgment",            20, :trump, "Awakening, rebirth, inner calling, new perspective" )
-  # Card.new( "The World",           21, :trump, "Enlightenment, completion, travel, perfect unity, accomplishment" )
-
 
   # Define Spreads
   Spread.new("Past, Present, Future", ["the past of", "the present state of", "the future of"])
@@ -363,12 +339,12 @@ def intro
   dialogue("Hello and welcome to my tarot reading table.")
   dialogue("My name is Lisa. I've been expecting you, it's very nice to finally meet you...")
   dialogue("While I may be psychic, I'm not a mind reader. What should I call you?")
-  puts "Type your response:"
+  puts "Type your response and hit enter:"
   puts
   $username = gets.chomp.capitalize
   pause
   dialogue("Welcome #{$username}. How are you?")
-  continue? "Type your response:"
+  continue? "Type your response and hit enter:"
   puts
   dialogue("Ah! Don't worry, it shouldn't affect the reading.")
   pause
