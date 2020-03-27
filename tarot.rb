@@ -1,6 +1,10 @@
 require 'singleton'
 require_relative 'meanings'
 
+# DISCLAIMER:
+# I wrote this on an airplane. The code sucks.
+# One day, it will be awesome.
+
 # Global settings
 $lineWidth = `tput cols`.to_i
 
