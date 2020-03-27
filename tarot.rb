@@ -372,7 +372,7 @@ def intro
 end
 
 def outro
-  dialogue("Thank you for visiting me, and remember, #{$username}: my terminal is alway open.")
+  dialogue("Thank you for visiting me, and remember, #{$username}: my terminal is always open.")
   dialogue("Come back anytime.")
   subtitle "Goodbye"
 end
