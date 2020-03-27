@@ -50,18 +50,18 @@ def continue? string = "Press enter when you're ready to continue"
 end
 
 def ordinal(n)
-  ending = case n % 100
-           when 11, 12, 13 then 'th'
-           else
-             case n % 10
-             when 1 then 'st'
-             when 2 then 'nd'
-             when 3 then 'rd'
-             else 'th'
-             end
-           end
+  s = case n % 100
+      when 11, 12, 13 then 'th'
+      else
+        case n % 10
+        when 1 then 'st'
+        when 2 then 'nd'
+        when 3 then 'rd'
+        else 'th'
+        end
+      end
 
-  "#{n}#{ending}"
+  "#{n}#{s}"
 end
 
 
