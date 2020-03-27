@@ -1,5 +1,4 @@
 require 'singleton'
-require 'numbers_and_words'
 require_relative 'meanings'
 
 # Global settings
@@ -49,6 +48,22 @@ def continue? string = "Press enter when you're ready to continue"
   puts
   continue = gets.chomp
 end
+
+def ordinal(n)
+  ending = case n % 100
+           when 11, 12, 13 then 'th'
+           else
+             case n % 10
+             when 1 then 'st'
+             when 2 then 'nd'
+             when 3 then 'rd'
+             else 'th'
+             end
+           end
+
+  "#{n}#{ending}"
+end
+
 
 # DEBUG
 def print_deck
@@ -278,12 +293,12 @@ def reading
   subtitle current_spread.title
 
   current_spread.steps.each_with_index do |step, i|
-    continue? "Hit enter to draw the #{current_spread.steps[-1] == current_spread.steps[i] ? 'final' : (i+1).to_words(ordinal: true)} card."
+    continue? "Hit enter to draw the #{current_spread.steps[-1] == current_spread.steps[i] ? 'final' : ordinal(i+1)} card."
     current_spread.place_card $deck.draw!
 
     card = current_spread.cards[i]
 
-    puts "The #{(i+1).to_words ordinal: true} position represents #{current_spread.steps[i]} the situation.".blue.center($lineWidth)
+    puts "The #{ordinal(i+1)} position represents #{current_spread.steps[i]} the situation.".blue.center($lineWidth)
     puts
     puts "You have drawn #{card.title}#{card.reversed? ? ', reversed' : ''}.".red.center($lineWidth)
     puts
