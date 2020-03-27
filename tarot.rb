@@ -2,7 +2,7 @@ require 'singleton'
 require_relative 'meanings'
 
 # Global settings
-$lineWidth = 80
+$lineWidth = `tput cols`.to_i
 
 # Utilities
 class String
