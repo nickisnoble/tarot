@@ -6,3 +6,6 @@
 2. `$ bundle install` 
 3. `$ ruby tarot.rb`
 
+# Note:
+
+I wrote this on an airplane and the code is terrible but it's so much fun!
